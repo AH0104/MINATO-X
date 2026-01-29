@@ -356,6 +356,25 @@
       line-height: 1.6;
     }
 
+    .field-image {
+      margin-bottom: 4rem;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .field-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .field-image img {
+        height: 250px;
+      }
+    }
+
     .field-content {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -1007,6 +1026,9 @@
       <div class="field-header">
         <p class="field-label">FIELD</p>
         <h2 class="field-title">神戸・明石——<br>最高の学び舎が、ここにある。</h2>
+      </div>
+      <div class="field-image">
+        <img src="akashi-bridge.jpg" alt="明石海峡大橋">
       </div>
       <div class="field-content">
         <div>

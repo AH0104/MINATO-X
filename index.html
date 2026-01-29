@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MINATO-X | みなと釣具フィッシングクラブ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Bebas+Neue&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #F7F7F5;
+      --color-black: #111111;
+      --color-gray: #666666;
+      --color-light-gray: #E8E8E6;
+      --color-accent: #0891B2;
+      --color-warm: #D97706;
+      --font-display: 'Bebas Neue', 'Zen Kaku Gothic New', sans-serif;
+      --font-serif: 'Noto Serif JP', serif;
+      --font-body: 'Zen Kaku Gothic New', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-black);
+      overflow-x: hidden;
+    }
+
+    /* ========================================
+       HERO
+    ======================================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main {
+      font-family: var(--font-display);
+      font-size: clamp(18vw, 22vw, 30vw);
+      line-height: 0.85;
+      letter-spacing: -0.03em;
+      color: var(--color-black);
+      animation: slideUp 1s ease-out;
+    }
+
+    .hero-main span {
+      display: block;
+    }
+
+    .hero-x {
+      color: var(--color-accent);
+      display: inline-block;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    .hero-tagline {
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      writing-mode: vertical-rl;
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      letter-spacing: 0.3em;
+      color: var(--color-gray);
+    }
+
+    .hero-sub {
+      margin-top: 3rem;
+      max-width: 520px;
+    }
+
+    .hero-sub-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      color: var(--color-black);
+      font-weight: 700;
+    }
+
+    .hero-sub-desc {
+      font-size: 1rem;
+      color: var(--color-gray);
+      line-height: 2.2;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--color-gray);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-scroll::after {
+      content: '';
+      width: 60px;
+      height: 1px;
+      background: var(--color-black);
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ========================================
+       SECTION COMMON
+    ======================================== */
+    section {
+      padding: 8rem 2rem;
+      border-top: 1px solid var(--color-light-gray);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ========================================
+       ABOUT
+    ======================================== */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .about-label {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--color-light-gray);
+      margin-bottom: 2rem;
+    }
+
+    .about-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .about-lead {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      line-height: 2.2;
+      margin-bottom: 2rem;
+      color: var(--color-black);
+    }
+
+    .about-text {
+      color: var(--color-gray);
+      font-size: 0.95rem;
+      line-height: 2.2;
+    }
+
+    .about-highlight {
+      margin-top: 2.5rem;
+      padding: 1.5rem 2rem;
+      background: var(--color-black);
+      color: white;
+    }
+
+    .about-highlight p {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .about-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 4rem;
+    }
+
+    .about-x {
+      font-family: var(--font-display);
+      font-size: 18rem;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--color-accent);
+      opacity: 0.4;
+    }
+
+    @media (max-width: 768px) {
+      .about-x {
+        font-size: 10rem;
+      }
+    }
+
+    /* ========================================
+       VALUES
+    ======================================== */
+    .values {
+      background: var(--color-black);
+      color: white;
+    }
+
+    .values-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 6rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .values-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1;
+    }
+
+    .values-title span {
+      color: var(--color-accent);
+    }
+
+    .values-sub {
+      writing-mode: vertical-rl;
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    @media (max-width: 768px) {
+      .values-sub {
+        writing-mode: horizontal-tb;
+      }
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 900px) {
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .value-item {
+      padding: 3rem 2rem;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.3s ease;
+    }
+
+    .value-item:last-child {
+      border-right: none;
+    }
+
+    @media (max-width: 900px) {
+      .value-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .value-item:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .value-item:hover {
+      background: rgba(8, 145, 178, 0.1);
+    }
+
+    .value-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--color-accent);
+      margin-bottom: 2rem;
+    }
+
+    .value-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .value-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 2;
+    }
+
+    .values-bottom {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+    .values-bottom p {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      line-height: 2;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ========================================
+       FIELD - 釣場
+    ======================================== */
+    .field-header {
+      margin-bottom: 4rem;
+    }
+
+    .field-label {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1;
+      color: var(--color-light-gray);
+      margin-bottom: 1rem;
+    }
+
+    .field-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      line-height: 1.6;
+    }
+
+    .field-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .field-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .field-text {
+      color: var(--color-gray);
+      font-size: 0.95rem;
+      line-height: 2.4;
+      margin-bottom: 2rem;
+    }
+
+    .field-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 500px) {
+      .field-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .field-list-item {
+      padding: 1.25rem 1.5rem;
+      background: white;
+      border-left: 3px solid var(--color-accent);
+    }
+
+    .field-list-item-name {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .field-list-item-desc {
+      font-size: 0.8rem;
+      color: var(--color-gray);
+    }
+
+    .field-note {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--color-light-gray);
+      font-size: 0.85rem;
+      line-height: 2;
+      color: var(--color-gray);
+    }
+
+    .field-aside {
+      padding: 2rem;
+      background: var(--color-black);
+      color: white;
+    }
+
+    .field-aside-label {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+
+    .field-aside-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .field-aside-text {
+      font-size: 0.85rem;
+      line-height: 2;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ========================================
+       LIFE - 命をいただく
+    ======================================== */
+    .life {
+      background: var(--color-black);
+      color: white;
+    }
+
+    .life-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .life-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .life-label {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+      margin-bottom: 1rem;
+    }
+
+    .life-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .life-lead {
+      font-size: 1.1rem;
+      line-height: 2;
+      margin-bottom: 2rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .life-text {
+      font-size: 0.95rem;
+      line-height: 2.2;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .life-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .life-step {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .life-step:last-child {
+      border-bottom: none;
+    }
+
+    .life-step-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--color-accent);
+      min-width: 50px;
+    }
+
+    .life-step-content {
+      flex: 1;
+    }
+
+    .life-step-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .life-step-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ========================================
+       PROGRAM
+    ======================================== */
+    .program-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .program-label {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1;
+      color: var(--color-light-gray);
+    }
+
+    .program-intro {
+      max-width: 400px;
+      text-align: right;
+      color: var(--color-gray);
+      font-size: 0.9rem;
+      line-height: 2;
+    }
+
+    @media (max-width: 768px) {
+      .program-intro {
+        text-align: left;
+      }
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    @media (max-width: 900px) {
+      .program-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .program-card {
+      padding: 3rem 2rem;
+      border: 1px solid var(--color-light-gray);
+      transition: all 0.4s ease;
+    }
+
+    .program-card:not(:last-child) {
+      border-right: none;
+    }
+
+    @media (max-width: 900px) {
+      .program-card:not(:last-child) {
+        border-right: 1px solid var(--color-light-gray);
+        border-bottom: none;
+      }
+    }
+
+    .program-card:hover {
+      background: var(--color-black);
+      color: white;
+    }
+
+    .program-card:hover .program-card-num {
+      color: var(--color-accent);
+    }
+
+    .program-card-num {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      color: var(--color-light-gray);
+      margin-bottom: 2rem;
+      transition: color 0.4s ease;
+    }
+
+    .program-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .program-card-en {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: var(--color-gray);
+      margin-bottom: 2rem;
+    }
+
+    .program-card-desc {
+      font-size: 0.9rem;
+      line-height: 2;
+      color: var(--color-gray);
+    }
+
+    .program-card:hover .program-card-desc {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .program-card:hover .program-card-en {
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ========================================
+       INFO
+    ======================================== */
+    .info-header {
+      margin-bottom: 4rem;
+    }
+
+    .info-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1;
+    }
+
+    .info-table {
+      border-top: 2px solid var(--color-black);
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      border-bottom: 1px solid var(--color-light-gray);
+    }
+
+    @media (max-width: 600px) {
+      .info-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .info-label {
+      padding: 1.5rem 0;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      color: var(--color-gray);
+    }
+
+    .info-value {
+      padding: 1.5rem 0;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .info-label {
+        padding-bottom: 0.5rem;
+      }
+      .info-value {
+        padding-top: 0;
+        padding-bottom: 1.5rem;
+      }
+    }
+
+    /* ========================================
+       PARENTS
+    ======================================== */
+    .parents {
+      background: var(--color-light-gray);
+    }
+
+    .parents-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .parents-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .parents-label {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      line-height: 1;
+      color: rgba(0,0,0,0.1);
+    }
+
+    .parents-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .parents-text {
+      color: var(--color-gray);
+      font-size: 0.95rem;
+      line-height: 2.4;
+      margin-bottom: 1.5rem;
+    }
+
+    .parents-list {
+      margin-top: 2rem;
+      padding-left: 1.5rem;
+    }
+
+    .parents-list li {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--color-black);
+    }
+
+    .parents-note {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: white;
+      font-size: 0.9rem;
+      line-height: 2;
+      color: var(--color-gray);
+    }
+
+    /* ========================================
+       NAVIGATOR
+    ======================================== */
+    .navigator {
+      background: var(--color-black);
+      color: white;
+    }
+
+    .navigator-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .navigator-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .navigator-visual {
+      position: relative;
+    }
+
+    .navigator-circle {
+      width: 200px;
+      height: 200px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .navigator-circle-text {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .navigator-label {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .navigator-label {
+        font-size: 3rem;
+      }
+    }
+
+    .navigator-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .navigator-desc {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      line-height: 2;
+      margin-bottom: 2rem;
+    }
+
+    .navigator-quote {
+      border-left: 2px solid var(--color-accent);
+      padding-left: 1.5rem;
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      font-style: italic;
+      line-height: 2;
+    }
+
+    /* ========================================
+       CTA
+    ======================================== */
+    .cta {
+      text-align: center;
+      padding: 8rem 2rem;
+    }
+
+    .cta-lead {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--color-gray);
+      margin-bottom: 1rem;
+    }
+
+    .cta-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1.25rem 3rem;
+      background: var(--color-black);
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: var(--color-accent);
+    }
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+    .footer {
+      background: var(--color-black);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo span {
+      color: var(--color-accent);
+    }
+
+    .footer-org {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-company {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="hero-main">
+      <span>MINATO</span>
+      <span class="hero-x">X</span>
+    </h1>
+    <p class="hero-tagline">港から、未知へ。</p>
+    <div class="hero-sub">
+      <p class="hero-sub-tagline">
+        Xを、解きに行こう。
+      </p>
+      <p class="hero-sub-desc">
+        神戸の海を教室に、答えのない問いと向き合う。<br>
+        君だけの「X」を見つけにいこう。<br><br>
+        神戸発、中学生のための本格フィッシングクラブ。<br>
+        150年の港町で育む、次世代のチャレンジ精神。
+      </p>
+    </div>
+    <div class="hero-scroll">SCROLL</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <div class="container">
+      <div class="about">
+        <div>
+          <p class="about-label">01</p>
+          <h2 class="about-title">
+            釣りを超えた、<br>成長体験。
+          </h2>
+          <p class="about-lead">
+            MINATO-Xは、単なる釣り教室ではありません。
+          </p>
+          <p class="about-text">
+            デジタル社会で育つ今の子供たちに、あえてアナログな体験を届けたい。
+            スマホを置いて、自然と向き合い、五感をフルに使って考える時間。
+            それが、これからの時代を生きる力になると私たちは考えています。
+          </p>
+          <p class="about-text">
+            神戸の海という最高のフィールドで、待つ力・感じる力・諦めない力を養います。
+            正解のない問いに向き合い、自分で答えを見つける。
+            その繰り返しが、君を成長させます。
+          </p>
+          <div class="about-highlight">
+            <p>一本の糸の先に、未知がある。<br>未来がある。</p>
+          </div>
+        </div>
+        <div class="about-visual">
+          <span class="about-x">X</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values">
+    <div class="container">
+      <div class="values-header">
+        <h2 class="values-title">WHAT WE <span>VALUE</span></h2>
+        <p class="values-sub">三つの価値</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-item">
+          <p class="value-num">01</p>
+          <h3 class="value-title">地元への誇り</h3>
+          <p class="value-desc">
+            150年の歴史を持つ神戸港。この街で生まれ育つ君たちに、海との繋がりを。港町のアイデンティティを次世代へ。
+          </p>
+        </div>
+        <div class="value-item">
+          <p class="value-num">02</p>
+          <h3 class="value-title">自分で考える</h3>
+          <p class="value-desc">
+            魚は教科書通りには来ない。天候、潮、時間——全てを読み、仮説を立て、検証する。この思考プロセスが、人生に活きる。
+          </p>
+        </div>
+        <div class="value-item">
+          <p class="value-num">03</p>
+          <h3 class="value-title">諦めない心</h3>
+          <p class="value-desc">
+            釣れない時間が、君を鍛える。待つこと、信じること、挑み続けること。失敗から学ぶ力こそ、最大の武器。
+          </p>
+        </div>
+      </div>
+      <div class="values-bottom">
+        <p>自分で考えて釣れた時の達成感、仲間と過ごす海での時間——<br>学校では味わえない楽しさが、ここにある。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIELD -->
+  <section class="field">
+    <div class="container">
+      <div class="field-header">
+        <p class="field-label">FIELD</p>
+        <h2 class="field-title">神戸・明石——<br>最高の学び舎が、ここにある。</h2>
+      </div>
+      <div class="field-content">
+        <div>
+          <p class="field-text">
+            神戸港から明石海峡にかけての海域は、瀬戸内海でも屈指の好漁場。
+            潮流が複雑に交わり、四季折々の魚種が集まります。
+            この恵まれた環境が、MINATO-Xのフィールドです。
+          </p>
+          <p class="field-text">
+            初心者でも安心して楽しめる堤防から、
+            経験者が腕を試せるポイントまで。
+            レベルに合わせたフィールド選びで、着実にステップアップできます。
+          </p>
+          <div class="field-list">
+            <div class="field-list-item">
+              <p class="field-list-item-name">神戸港エリア</p>
+              <p class="field-list-item-desc">アクセス抜群、初心者に最適</p>
+            </div>
+            <div class="field-list-item">
+              <p class="field-list-item-name">須磨〜垂水</p>
+              <p class="field-list-item-desc">砂浜と岩場、多彩な釣りを体験</p>
+            </div>
+            <div class="field-list-item">
+              <p class="field-list-item-name">明石海峡周辺</p>
+              <p class="field-list-item-desc">潮流を読む、本格フィールド</p>
+            </div>
+            <div class="field-list-item">
+              <p class="field-list-item-name">淡路島北部</p>
+              <p class="field-list-item-desc">遠征で広がる、釣りの世界</p>
+            </div>
+          </div>
+          <div class="field-note">
+            ※ 季節・天候・メンバーのレベルに応じて、最適なフィールドを選定します。<br>
+            ※ 移動は原則として公共交通機関を利用。現地集合・現地解散が基本です。
+          </div>
+        </div>
+        <div class="field-aside">
+          <p class="field-aside-label">SUSTAINABILITY</p>
+          <h3 class="field-aside-title">海を守る。<br>それも、釣り人の仕事だ。</h3>
+          <p class="field-aside-text">
+            釣りを楽しむだけでなく、海の環境を守ることもMINATO-Xの大切な活動です。
+            ゴミの持ち帰り、釣り場のマナー、資源を大切にするリリースの判断——。
+            海と共に生きる姿勢を、体験を通じて学びます。
+            次の世代にも、この海を残すために。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFE -->
+  <section class="life">
+    <div class="container">
+      <div class="life-content">
+        <div>
+          <p class="life-label">LIFE</p>
+          <h2 class="life-title">
+            釣って、捌いて、<br>いただく。
+          </h2>
+          <p class="life-lead">
+            命と向き合う。<br>それが、本当の「食育」だ。
+          </p>
+          <p class="life-text">
+            スーパーに並ぶ切り身からは見えない、命のかたち。
+            自分で釣り上げた魚を、自分の手で捌き、感謝していただく。
+            その一連の体験が、「いただきます」の本当の意味を教えてくれます。
+          </p>
+          <p class="life-text">
+            MINATO-Xでは、釣った魚を持ち帰り、調理するところまでを「釣り」と考えます。
+            命をいただく責任。食べ物への感謝。
+            言葉ではなく、体験で学ぶ食育です。
+          </p>
+        </div>
+        <div class="life-steps">
+          <div class="life-step">
+            <span class="life-step-num">01</span>
+            <div class="life-step-content">
+              <p class="life-step-title">釣る</p>
+              <p class="life-step-desc">自然と対話し、命を手にする</p>
+            </div>
+          </div>
+          <div class="life-step">
+            <span class="life-step-num">02</span>
+            <div class="life-step-content">
+              <p class="life-step-title">締める</p>
+              <p class="life-step-desc">命に敬意を払い、鮮度を保つ</p>
+            </div>
+          </div>
+          <div class="life-step">
+            <span class="life-step-num">03</span>
+            <div class="life-step-content">
+              <p class="life-step-title">捌く</p>
+              <p class="life-step-desc">自分の手で、命をかたちにする</p>
+            </div>
+          </div>
+          <div class="life-step">
+            <span class="life-step-num">04</span>
+            <div class="life-step-content">
+              <p class="life-step-title">いただく</p>
+              <p class="life-step-desc">感謝と共に、命を自分の一部にする</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM -->
+  <section class="program">
+    <div class="container">
+      <div class="program-header">
+        <p class="program-label">PROGRAM</p>
+        <p class="program-intro">
+          月2回、1年間のカリキュラム。<br>
+          「学ぶ日」と「試す日」を交互に繰り返し、<br>
+          思考と実践のサイクルを回す。
+        </p>
+      </div>
+      <div class="program-grid">
+        <div class="program-card">
+          <p class="program-card-num">01</p>
+          <h3 class="program-card-title">座学</h3>
+          <p class="program-card-en">THINK</p>
+          <p class="program-card-desc">
+            潮汐の読み方、魚の生態、仕掛けの原理。
+            「なぜ釣れるのか」を考える時間。
+            次の実釣に向けて、仮説を立てる。
+          </p>
+        </div>
+        <div class="program-card">
+          <p class="program-card-num">02</p>
+          <h3 class="program-card-title">実釣</h3>
+          <p class="program-card-en">TRY</p>
+          <p class="program-card-desc">
+            神戸・明石エリアの海で、実際に竿を出す。
+            仮説を検証し、海から学ぶ時間。
+            釣れても、釣れなくても、学びがある。
+          </p>
+        </div>
+        <div class="program-card">
+          <p class="program-card-num">03</p>
+          <h3 class="program-card-title">自作</h3>
+          <p class="program-card-en">CREATE</p>
+          <p class="program-card-desc">
+            仕掛けやルアーを自分で作り、自分の道具で挑む。
+            既製品では味わえない、ものづくりの楽しさ。
+            自作の一投で釣れた時の喜びは格別だ。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="info">
+    <div class="container">
+      <div class="info-header">
+        <h2 class="info-title">INFORMATION</h2>
+      </div>
+      <div class="info-table">
+        <div class="info-row">
+          <div class="info-label">TARGET</div>
+          <div class="info-value">神戸市内の中学生（1〜3年生）</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">CAPACITY</div>
+          <div class="info-value">5名（少人数制）</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">FREQUENCY</div>
+          <div class="info-value">月2回（隔週）/ 座学1回 + 実釣1回</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">FEE</div>
+          <div class="info-value">月額 2,000円（税込）</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">LOCATION</div>
+          <div class="info-value">みなと釣具店舗 / 神戸・明石エリア</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARENTS -->
+  <section class="parents">
+    <div class="container">
+      <div class="parents-content">
+        <div>
+          <p class="parents-label">FOR<br>PARENTS</p>
+        </div>
+        <div>
+          <h2 class="parents-title">保護者の方へ</h2>
+          <p class="parents-text">
+            MINATO-Xは、お子様の「考える力」と「やり抜く力」を育てる場です。
+            釣りという体験を通じて、教室では得られない学びを提供します。
+          </p>
+          <p class="parents-text">
+            スマートフォンを置いて、自然と向き合う時間。
+            大人が答えを教えるのではなく、自分で考え、試行錯誤する時間。
+            そして、命をいただくことの意味を体験で学ぶ時間。
+            そんな経験が、これからの時代を生きる子どもたちに必要だと、私たちは考えています。
+          </p>
+          <ul class="parents-list">
+            <li>少人数制（定員5名）で、一人ひとりに目が届く環境</li>
+            <li>地元の釣具店が運営する、安心と信頼</li>
+            <li>学校や学年を超えた、新しい仲間との出会い</li>
+            <li>釣る・捌く・食べるまでを一貫して体験する食育</li>
+            <li>月2,000円という、続けやすい価格設定</li>
+          </ul>
+          <div class="parents-note">
+            ※ 釣り経験は問いません。道具のレンタルも可能です。<br>
+            ※ 実釣時は必ずスタッフが同行し、安全管理を徹底します。<br>
+            ※ 魚の調理は、店舗または各ご家庭で行っていただきます。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATOR -->
+  <section class="navigator">
+    <div class="container">
+      <div class="navigator-content">
+        <div class="navigator-visual">
+          <div class="navigator-circle">
+            <span class="navigator-circle-text">COMING SOON</span>
+          </div>
+        </div>
+        <div>
+          <p class="navigator-label">NAVIGATOR</p>
+          <h2 class="navigator-title">ナビゲーター紹介</h2>
+          <p class="navigator-desc">
+            MINATO-Xの講師は「ナビゲーター」と呼ばれます。
+            「教える」のではなく「導く」存在。
+            目的地を決めるのは君自身、ナビゲーターは道を照らすだけです。
+          </p>
+          <p class="navigator-quote">
+            「答えを教えるのではなく、問いを一緒に探す。
+            それが、私たちナビゲーターの役割です。」
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <p class="cta-lead">準備はいい?</p>
+    <h2 class="cta-title">神戸の海が、<br>君を待っている。</h2>
+    <a href="#" class="cta-button">CONTACT / ENTRY</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-logo">MINATO-<span>X</span></p>
+    <p class="footer-org">みなと釣具フィッシングクラブ</p>
+    <p class="footer-company">運営会社　株式会社MINATO</p>
+    <p class="footer-copy">&copy; 2025 MINATO Corporation.</p>
+  </footer>
+
+</body>
+</html>

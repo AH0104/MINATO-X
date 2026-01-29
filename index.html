@@ -321,6 +321,20 @@
       line-height: 2;
     }
 
+    .values-bottom {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+    .values-bottom p {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      line-height: 2;
+      color: rgba(255,255,255,0.8);
+    }
+
     /* ========================================
        FIELD - 釣場
     ======================================== */
@@ -553,28 +567,28 @@
 
     .program-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 0;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .program-grid {
         grid-template-columns: 1fr;
       }
     }
 
     .program-card {
-      padding: 4rem 3rem;
+      padding: 3rem 2rem;
       border: 1px solid var(--color-light-gray);
       transition: all 0.4s ease;
     }
 
-    .program-card:first-child {
+    .program-card:not(:last-child) {
       border-right: none;
     }
 
-    @media (max-width: 768px) {
-      .program-card:first-child {
+    @media (max-width: 900px) {
+      .program-card:not(:last-child) {
         border-right: 1px solid var(--color-light-gray);
         border-bottom: none;
       }
@@ -931,6 +945,11 @@
             MINATO-Xは、単なる釣り教室ではありません。
           </p>
           <p class="about-text">
+            デジタル社会で育つ今の子供たちに、あえてアナログな体験を届けたい。
+            スマホを置いて、自然と向き合い、五感をフルに使って考える時間。
+            それが、これからの時代を生きる力になると私たちは考えています。
+          </p>
+          <p class="about-text">
             神戸の海という最高のフィールドで、待つ力・感じる力・諦めない力を養います。
             正解のない問いに向き合い、自分で答えを見つける。
             その繰り返しが、君を成長させます。
@@ -975,6 +994,9 @@
             釣れない時間が、君を鍛える。待つこと、信じること、挑み続けること。失敗から学ぶ力こそ、最大の武器。
           </p>
         </div>
+      </div>
+      <div class="values-bottom">
+        <p>自分で考えて釣れた時の達成感、仲間と過ごす海での時間——<br>学校では味わえない楽しさが、ここにある。</p>
       </div>
     </div>
   </section>
@@ -1098,7 +1120,7 @@
       <div class="program-header">
         <p class="program-label">PROGRAM</p>
         <p class="program-intro">
-          月2回、隔週での活動。<br>
+          月2回、1年間のカリキュラム。<br>
           「学ぶ日」と「試す日」を交互に繰り返し、<br>
           思考と実践のサイクルを回す。
         </p>
@@ -1122,6 +1144,16 @@
             神戸・明石エリアの海で、実際に竿を出す。
             仮説を検証し、海から学ぶ時間。
             釣れても、釣れなくても、学びがある。
+          </p>
+        </div>
+        <div class="program-card">
+          <p class="program-card-num">03</p>
+          <h3 class="program-card-title">自作</h3>
+          <p class="program-card-en">CREATE</p>
+          <p class="program-card-desc">
+            仕掛けやルアーを自分で作り、自分の道具で挑む。
+            既製品では味わえない、ものづくりの楽しさ。
+            自作の一投で釣れた時の喜びは格別だ。
           </p>
         </div>
       </div>
